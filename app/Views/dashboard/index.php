@@ -21,7 +21,7 @@
                   <!-- small box -->
                   <div class="small-box bg-purple">
                       <div class="inner">
-                      <h3><?php echo $sparepart[0]->total;?></h3> 
+                      <h3><?php echo $servis[0]->total;?></h3> 
                           <p>Service</p>
                       </div>
                       <div class="icon">
@@ -79,6 +79,19 @@
                       <div class="icon">
                       </div>
                       <a href="<?php echo base_url('keluar');?>" class="small-box-footer">More info <i
+                              class="fa fa-arrow-circle-right"></i></a>
+                  </div>
+              </div><!-- ./col -->
+              <div class="col-lg-3 col-xs-12 ">
+                  <!-- small box -->
+                  <div class="small-box bg-orange">
+                      <div class="inner">
+                      <h3><?php echo $servis_keluar[0]->total;?></h3> 
+                          <p>Pelayanan Jasa Servis</p>
+                      </div>
+                      <div class="icon">
+                      </div>
+                      <a href="<?php echo base_url('servisKeluar');?>" class="small-box-footer">More info <i
                               class="fa fa-arrow-circle-right"></i></a>
                   </div>
               </div><!-- ./col -->

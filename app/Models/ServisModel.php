@@ -40,7 +40,7 @@ class ServisModel extends Model
         return $sql->getResult();
     }
 
-    public function ambilServis($id)
+public function ambilServis($id)
 	{
         $query = "SELECT * FROM servis 
         WHERE `id_servis`=($id)";

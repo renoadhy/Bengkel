@@ -79,9 +79,15 @@ function rupiah($angka){
     <!-- <body style='font-family:tahoma; font-size:8pt;' onload=""> -->
     <center>
         <table style=' font-size:10pt; font-family:calibri; border-collapse: collapse;' border='0'>
+            <tr>
+                <td colspan="2">
+                    <center> &nbsp;&nbsp;<img class=" " src="<?php echo base_url('assets/img/rumipay.png');?>"
+                            class="mt-5" width="130" alt="">
+                </td>
+            </tr>
             <tr >
                 <td colspan="2">
-                    <center><h1>SFR BENGKEL</h1>
+                    <center><h1>SFP MOTOR</h1>
                 </td>
             </tr>
             <tr style="margin-bottom:7px">

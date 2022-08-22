@@ -3,91 +3,91 @@
 <head>
     <title>Faktur Penjualan</title>
     <style>
-    #tabel {
-        font-size: 15px;
-        border-collapse: collapse;
-    }
-
-    #tabel td {
-        padding-left: 5px;
-        border: 1px solid black;
-    }
-
-    @media print {
-
-        html,
-        body {
-            width: 57mm;
-            height: 30mm;
+        #tabel {
+            font-size: 15px;
+            border-collapse: collapse;
         }
 
+        #tabel td {
+            padding-left: 5px;
+            border: 1px solid black;
+        }
 
-    }
+        @media print {
+
+            html,
+            body {
+                width: 57mm;
+                height: 30mm;
+            }
+
+
+        }
     </style>
-</head> 
+</head>
 
 <body style='font-family:tahoma; font-size:8pt;' onload="javascript:window.print()">
-<?php
- function tgl_indo($tanggal, $cetak_hari = false, $cetak_jam = false)
-{
-    $hari = array ( 1 =>    'Senin',
-                'Selasa',
-                'Rabu',
-                'Kamis',
-                'Jumat',
-                'Sabtu',
-                'Minggu'
-            );
-            
-    $bulan = array (1 =>   'Januari',
-                'Februari',
-                'Maret',
-                'April',
-                'Mei',
-                'Juni',
-                'Juli',
-                'Agustus',
-                'September',
-                'Oktober',
-                'November',
-                'Desember'
-            );
-    $split    = explode('-', $tanggal);
-    $jam = explode(' ',$split[2]);
+    <?php
+    function tgl_indo($tanggal, $cetak_hari = false, $cetak_jam = false)
+    {
+        $hari = array(
+            1 =>    'Senin',
+            'Selasa',
+            'Rabu',
+            'Kamis',
+            'Jumat',
+            'Sabtu',
+            'Minggu'
+        );
 
-    if($cetak_jam)
-    {
-        $waktu = explode('.', $jam[1]);
-        $tgl_indo = $jam[0] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0]. ' ' .$waktu[0];
-    }else
-    {
-        $tgl_indo = $jam[0] . ' ' . $bulan[ (int)$split[1] ] . ' ' . $split[0];
+        $bulan = array(
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+        $split    = explode('-', $tanggal);
+        $jam = explode(' ', $split[2]);
+
+        if ($cetak_jam) {
+            $waktu = explode('.', $jam[1]);
+            $tgl_indo = $jam[0] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0] . ' ' . $waktu[0];
+        } else {
+            $tgl_indo = $jam[0] . ' ' . $bulan[(int)$split[1]] . ' ' . $split[0];
+        }
+        if ($cetak_hari) {
+            $num = date('N', strtotime($tanggal));
+            return $hari[$num] . ', ' . $tgl_indo;
+        }
+        return $tgl_indo;
     }
-    if ($cetak_hari) 
+    function rupiah($angka)
     {
-        $num = date('N', strtotime($tanggal));
-        return $hari[$num] . ', ' . $tgl_indo;
+        $hasil_rupiah = "Rp " . number_format($angka, 0, ',', '.');
+        return $hasil_rupiah;
     }
-    return $tgl_indo;
-}  
-function rupiah($angka){ 
-    $hasil_rupiah = "Rp " . number_format($angka,0,',','.');
-    return $hasil_rupiah; 
-} 
-?>
+    ?>
 
     <!-- <body style='font-family:tahoma; font-size:8pt;' onload=""> -->
     <center>
         <table style=' font-size:10pt; font-family:calibri; border-collapse: collapse;' border='0'>
             <tr>
                 <td colspan="2">
-                    <center> &nbsp;&nbsp;<img class=" " src="<?php echo base_url('assets/img/rumipay.png');?>"
-                            class="mt-5" width="130" alt="">
+                    <center> &nbsp;&nbsp;<img class=" " src="<?php echo base_url('assets/img/rumipay.png'); ?>" class="mt-5" width="130" alt="">
                 </td>
             </tr>
-            <tr >
+            <tr>
                 <td colspan="2">
-                    <center><h1>SFR MOTOR</h1>
+                    <center>
+                        <h1>SFP MOTOR</h1>
                 </td>
             </tr>
             <tr style="margin-bottom:7px">
@@ -99,13 +99,13 @@ function rupiah($angka){
                 <td>
                     &nbsp;
                 </td>
-            </tr> 
+            </tr>
             <tr>
                 <td width="40%">
                     Tanggal
                 </td>
                 <td>
-                    : &nbsp;<?php echo  tgl_indo($data_servis_keluar['tgl_keluar']);?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                    : &nbsp;<?php echo  tgl_indo($data_servis_keluar['tgl_keluar']); ?> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </td>
             </tr>
             <tr>
@@ -113,34 +113,34 @@ function rupiah($angka){
                     Pelanggan
                 </td>
                 <td>
-                    : &nbsp;<?php   echo $data_servis_keluar['pelanggan'];?>
+                    : &nbsp;<?php echo $data_servis_keluar['pelanggan']; ?>
                 </td>
             </tr>
             <tr></tr>
             <tr>
                 <td>
                     Rincian :
-                </td> 
-            </tr> 
-            
+                </td>
+            </tr>
+
             <tr>
-                <table style="font-size:8pt; font-family:calibri; border-collapse: collapse;' border='1'" border='1'>
+                <table style="font-size:8pt; font-family:calibri; border-collapse: collapse;" border='1'>
                     <tr>
                         <td>No</td>
                         <td>Nama Service</td>
                         <td>Harga</td>
-                        <td>Total</td>  
+                        <td>Total</td>
                     </tr>
-                    <?php 
-                    $no=1;
-                    foreach($data_detail_penjualan as $r){ ?>
-                    <tr>
-                        <td><?= $no++;;?></td>
-                        <td><?= $r->nm_servis;?></td>
-                        <td><?= rupiah($r->harga);?></td>
-                        <td><?= rupiah($r->jml*$r->harga);?></td>  
-                    </tr> 
-                    <?php } ;?>
+                    <?php
+                    $no = 1;
+                    foreach ($data_detail_penjualan as $r) { ?>
+                        <tr>
+                            <td><?= $no++;; ?></td>
+                            <td><?= $r->nm_servis; ?></td>
+                            <td><?= rupiah($r->harga); ?></td>
+                            <td><?= rupiah($r->harga); ?></td>
+                        </tr>
+                    <?php }; ?>
                 </table>
             </tr>
             <tr>
@@ -153,7 +153,7 @@ function rupiah($angka){
                     &nbsp;
                 </td>
             </tr>
-            
+
             <tr>
                 <td>
                     &nbsp;
@@ -165,10 +165,10 @@ function rupiah($angka){
                     Total
                 </td>
                 <td>
-                    : &nbsp;<?php echo rupiah($data_servis_keluar['total']);?>
+                    : &nbsp;<?php echo rupiah($data_servis_keluar['total']); ?>
                 </td>
             </tr>
-             <br>
+            <br>
             <tr>
                 <td>
 
@@ -176,9 +176,9 @@ function rupiah($angka){
                 <td>
                     ------------------------------
                 </td>
-            </tr> 
+            </tr>
             <br>
-            
+
             <tr>
                 <td>
                     &nbsp;
@@ -198,10 +198,10 @@ function rupiah($angka){
                         -----------
                     </center>
                 </td>
-            </tr> 
-           
+            </tr>
+
         </table>
-      
+
     </center>
 </body>
 

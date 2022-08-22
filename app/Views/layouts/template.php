@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Sistem Informasi Bengkel SFR Motor</title>
+    <title>Sistem Informasi Bengkel SFP Motor</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.2 -->
     <link href="<?php echo base_url('assets/bootstrap/css/bootstrap.min.css');?>" rel="stylesheet" type="text/css" />
@@ -47,7 +47,7 @@
     <div class="wrapper">
         <header class="main-header text-lg">
             <!-- Logo -->
-            <a href="<?php echo base_url('/dashboard');?>" class="logo"> Bengkel SFR Motor</a>
+            <a href="<?php echo base_url('/dashboard');?>" class="logo"> Bengkel SFP Motor</a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top" role="navigation">
                 <!-- Sidebar toggle button-->
@@ -115,17 +115,17 @@
                             Data Pengguna</a></li>   
                     <li><a href="<?php echo base_url('supplier');?>"><i class="fa fa-folder"></i>
                             Data Supplier</a></li> 
-                    <li><a href="<?php echo base_url('servis');?>"><i class="fa fa-cogs"></i>
+                    <li><a href="<?php echo base_url('servis');?>"><i class="fa fa-wrench"></i>
                             Data Servis</a></li> 
-                    <li><a href="<?php echo base_url('sparepart');?>"><i class="fa fa-gear"></i>
+                    <li><a href="<?php echo base_url('sparepart');?>"><i class="fa fa-cogs"></i>
                             Data Sparepart</a></li>                             
                     <li class="header">TRANSAKSI</li>
                     <li><a href="<?php echo base_url('masuk');?>"><i class="fa fa-shopping-cart"></i>
                             Pembelian Sparepart</a></li>
                     <li><a href="<?php echo base_url('keluar');?>"><i class="fa fa-money"></i>
-                            Penjualan Sparepart</a></li> 
+                            Pembayaran Sparepart</a></li> 
                     <li><a href="<?php echo base_url('servisKeluar');?>"><i class="fa fa-money"></i>
-                            Jasa Servis</a></li> 
+                            Pembayaran Jasa Servis</a></li> 
                 </ul>
             </section>
             <!-- /.sidebar -->
